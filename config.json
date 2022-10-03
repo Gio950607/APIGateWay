@@ -1,0 +1,137 @@
+{
+ "version": 3,
+ "port": 7000,
+ "cache_ttl": "5m",
+ "timeout": "10s",	 
+ "endpoints": [
+    {
+        "endpoint": "/GotDetailinfo",
+	"method": "GET",
+        "backend": [
+            {
+                "host": [
+                   "localhost:4000",
+		   "aaa",
+		   "b",
+		   "c",
+		   "d",
+		   "e",
+		   "f",
+		   "g",
+		   "h",
+		   "i",
+		   "j",
+		   "k"
+                   ], 
+                   "method": "GET",
+             "url_pattern": "/GotDetailinfo"
+            },
+            {
+                "host": [
+                   "localhost:3000"
+                   ],  
+                   "method": "POST",
+                "url_pattern": "/detailTx"
+            }
+            
+           ],
+           "extra_config": {
+            "github.com/devopsfaith/krakend/proxy": {
+                "sequential": true
+            }
+          }
+    },
+    {
+        "endpoint": "/GotTxsReq",
+	"method": "GET",
+        "backend": [
+            {
+                "host": [
+                    "localhost:4000"
+                   ], 
+                   "method": "GET",
+             "url_pattern": "/GotTxsReq"
+            },
+            {
+                "host": [
+                    "http://localhost:3000"
+                   ],  
+                   "method": "POST",
+                "url_pattern": "/CheckAddress"
+            }
+            
+           ],
+           "extra_config": {
+            "github.com/devopsfaith/krakend/proxy": {
+                "sequential": true
+            }
+          }
+    },
+
+    {
+        "endpoint": "/ReqTx",
+	"method": "GET",
+        "backend": [
+            {
+                "host": [
+                   "localhost:4000"
+                   ], 
+                   "method": "GET",
+             "url_pattern": "/RegTx"
+            },
+            {
+                "host": [
+                   "localhost:3000"
+                   ],  
+                   "method": "POST",
+                "url_pattern": "/RegTx"
+            }
+            
+           ],
+           "extra_config": {
+            "github.com/devopsfaith/krakend/proxy": {
+                "sequential": true
+            }
+          }
+    },
+  {
+   "endpoint": "/GotWalletReq",
+   "method": "GET",  
+   "backend": [
+    {    
+        "host": [
+           "localhost:4000",
+	   "aaa",
+                   "b",
+                   "c",
+                   "d",
+                   "e",
+                   "f",
+                   "g",
+                   "h",
+                   "i",
+                   "j",
+		   "k"
+
+           ], 
+           "method": "GET",
+     "url_pattern": "/GotWalletReq"
+    },
+     {
+        "host": [
+            "localhost:3000"
+           ],  
+           "method": "POST",
+        "url_pattern": "/MakeWallet"
+    }		
+    
+   ],
+	  "extra_config": {
+    "github.com/devopsfaith/krakend/proxy": {
+        "sequential": true
+    }
+  }
+  }
+ 
+ ]
+}
